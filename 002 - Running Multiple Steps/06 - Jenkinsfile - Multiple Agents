@@ -3,7 +3,7 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
-	}
+	
     stages {
     	stage('Check Maven Version') {
 		agent{ docker 'maven:latest'}
