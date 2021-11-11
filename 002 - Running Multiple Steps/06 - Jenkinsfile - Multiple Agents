@@ -5,5 +5,17 @@ pipeline {
 		}
 	}
     stages {
+    	stage('Check Maven Version') {
+		agent{ docker 'maven:latest'}
+		steps {
+			sh 'mvn --version'
     }
+}
+
+stage('Check MPN Version') {
+		agent{ docker 'node:6.3'}
+		steps {
+			sh 'npm --version'
+		}
+	}
 }
