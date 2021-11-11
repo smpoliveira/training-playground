@@ -3,7 +3,28 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
+		
 	}
+    parameters { choice(name: 'VARIABLE', choices: ['build', 'test'], description: 'which stage do you want to execute?') }
     stages {
+    
+    	stage('execute_build') {
+		when {
+     
+                environment name: 'VARIABLE', value: 'build'
+            }
+            steps {
+                echo 'Build'
+            }
+	    
+    	stage('execute_test') {
+		when {
+     
+                environment name: 'VARIABLE', value: 'test'
+            }
+            steps {
+                echo 'Test'
+            }
+    
     }
 }
