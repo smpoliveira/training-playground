@@ -1,10 +1,9 @@
 pipeline {
     agent none
-		docker { 
-			image 'alpine:latest' 
-		}
-	
     stages {
+    	stage ('Check mvn and npm version in parallel') {
+		parallel {
+	
     	stage('Check Maven Version') {
 		agent{ docker 'maven:latest'}
 		steps {
@@ -18,5 +17,7 @@ stage('Check MPN Version') {
 			sh 'npm --version'
 		}
 	}
+}
+}
 }
 }
