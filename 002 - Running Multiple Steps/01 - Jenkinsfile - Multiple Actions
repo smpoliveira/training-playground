@@ -21,3 +21,4 @@ def createAndPrintDate(fileName = '') {
     sh "date >> $fileName"
     sh "cat $fileName"
 }
+}
