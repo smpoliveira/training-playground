@@ -16,6 +16,7 @@ pipeline {
             steps {
                 echo 'Build'
             }
+    	}
 	    
     	stage('execute_test') {
 		when {
@@ -28,4 +29,5 @@ pipeline {
     
     }
 }
+
 }
