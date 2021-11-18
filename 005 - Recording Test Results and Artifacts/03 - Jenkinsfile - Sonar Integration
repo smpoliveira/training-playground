@@ -13,7 +13,8 @@ pipeline {
                 sh "mvn clean install \
 		-f '005 - Recording Test Results and Artifacts/02 - Java Unit Tests' \
 		-s settings-copy.xml clean install \ 
-		org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar -Dsonar.host.url='http://sonarqube:9000' \
+		org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar \
+		-Dsonar.host.url='http://sonarqube:9000' \
 		-Dsonar.projectkey='123' -Dsonar.projectName='batatas'"
 		}
             }
