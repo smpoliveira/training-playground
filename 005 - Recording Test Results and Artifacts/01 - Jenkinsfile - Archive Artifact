@@ -7,8 +7,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "curl www.google.com"
+                sh "curl www.google.com -o output.txt"
+		archiveArtifacts artifacts: 'output.txt'
             }
         }
-    }
+    }    
 }
