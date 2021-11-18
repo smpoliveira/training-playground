@@ -8,7 +8,7 @@ pipeline {
         stage('tests') {
             steps {
 	    
-	        configfileProvider([configFile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')]) {	
+	        configFileProvider([configFile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')]) {	
                 sh "mvn install -f '005 - Recording Test Results and Artifacts/02 - Java Unit Tests' -s settings-copy.xml"
 		}
             }
