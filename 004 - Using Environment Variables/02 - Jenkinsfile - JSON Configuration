@@ -22,7 +22,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = readJSON text: $BUILD_CONFIGS
+                	def buildConfigs = readJSON text: "$BUILD_CONFIGS"
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
