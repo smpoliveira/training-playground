@@ -4,6 +4,10 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	
+	environment {
+		NOTIFICATION_EMAIL = 'sara.pereira.oliveira@celfocus.com'
+	}
     stages {
         stage('build') {
             steps {
