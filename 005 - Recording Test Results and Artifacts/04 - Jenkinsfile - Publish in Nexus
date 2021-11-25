@@ -15,6 +15,7 @@ pipeline {
 			-s settings-copy.xml"
 			}
 			}
+			}
 	 stage('publish') {
             steps {	
 		sh "mvn deploy:deploy-file \
@@ -29,8 +30,6 @@ pipeline {
 			-Dversion=1.0.0"
 	    }
         }
-
-    }
 }
 }
 
