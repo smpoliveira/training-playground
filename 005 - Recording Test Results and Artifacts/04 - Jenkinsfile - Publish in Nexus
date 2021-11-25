@@ -1,14 +1,20 @@
 pipeline {
     agent { 
 		docker { 
-			image 'alpine:latest' 
+			image 'maven:3.3.3' 
+			args '--network training-playground'
+			
 		}
 	}
     stages {
-        stage('tests') {
+        stage('build') {
             steps {
-                sh ""
+                configfileProvider([configfile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')}) {
+		sh "mvn clean install \
+			-f '005 - Recording Test Results and Artifacts/04 - Jenkinsfile - Publish in Nexus' \
+			-s 'settings-copy.xml'"
             }
         }
+
     }
 }
