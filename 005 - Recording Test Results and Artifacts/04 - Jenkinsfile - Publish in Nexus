@@ -20,7 +20,7 @@ pipeline {
             steps {	
 		sh "mvn deploy:deploy-file \
 		-s settings-copy.xml \
-			-Durl='http://nexus:8081/repository/maven-releases/' \
+			-Durl='http://nexus:8081/repository/maven-releases' \
 			-DrepositoryId='maven-releases' \
 			-Dfile='005 - Recording Test Results and Artifacts/04 - Publish in Nexus/target/java-app-1.0.0.jar' \
                         -DgeneratePom=true \
