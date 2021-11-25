@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                configfileProvider([configfile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')}) {
+                configfileProvider([configfile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')]) {
 		sh "mvn clean install \
 			-f '005 - Recording Test Results and Artifacts/04 - Jenkinsfile - Publish in Nexus' \
 			-s 'settings-copy.xml'"
@@ -17,4 +17,5 @@ pipeline {
         }
 
     }
+}
 }
