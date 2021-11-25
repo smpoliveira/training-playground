@@ -13,7 +13,7 @@ pipeline {
 		sh "mvn clean install \
 			-f '005 - Recording Test Results and Artifacts/04 - Publish in Nexus' \
 			-s settings-copy.xml"
-			
+			}
 			}
 	 stage('publish') {
             steps {	
@@ -27,7 +27,6 @@ pipeline {
 			-DartifactId='nexusApp' \
 			-DgroupId='org.celfocus.jenkins.training' \
 			-Dversion=1.0.0"
-            }
 	    }
         }
 
