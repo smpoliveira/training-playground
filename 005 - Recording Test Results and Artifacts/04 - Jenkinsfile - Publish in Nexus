@@ -13,15 +13,23 @@ pipeline {
 		sh "mvn clean install \
 			-f '005 - Recording Test Results and Artifacts/04 - Publish in Nexus' \
 			-s settings-copy.xml"
+			
+			}
+	 stage('publish') {
+            steps {	
+		sh "mvn deploy:deploy-file \
+		-s settings-copy.xml
+	
 			-Durl='http://nexus:8081/repository/maven-releases/' \
-			-DrepositoryId=maven-releases \
+			-DrepositoryId='maven-releases' \
 			-Dfile='005 - Recording Test Results and Artifacts/04 - Publish in Nexus/target/java-app-1.0.0.jar' \
                         -DgeneratePom=true \
-			-DgeneratePom.description="My Project Description - NEXUS DEPLOY" \
+			-DgeneratePom.description='My Project Description - NEXUS DEPLOY' \
 			-DartifactId='nexusApp' \
-			-DgroupId=org.celfocus.jenkins.training \
-			-Dversion=1.0"
+			-DgroupId='org.celfocus.jenkins.training' \
+			-Dversion=1.0.0"
             }
+	    }
         }
 
     }
