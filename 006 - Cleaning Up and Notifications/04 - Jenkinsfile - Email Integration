@@ -7,8 +7,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh ""
+                echo "Ok"
             }
         }
     }
+    post {
+        always {
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        }
 }
