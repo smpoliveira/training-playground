@@ -25,7 +25,7 @@ pipeline {
 			-Dfile='005 - Recording Test Results and Artifacts/04 - Publish in Nexus/target/java-app-1.0.0.jar' \
                         -DgeneratePom=true \
 			-DgeneratePom.description='My Project Description - NEXUS DEPLOY' \
-			-DartifactId='nexusApp' \
+			-DartifactId='nexusApp3' \
 			-DgroupId='org.celfocus.jenkins.training' \
 			-Dversion=1.0.0"
 	    }
